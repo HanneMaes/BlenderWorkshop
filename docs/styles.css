@@ -1,0 +1,118 @@
+:root {
+  /* bg colors */
+  --colorBg: #383838;
+  --colorBgLight: #424242;
+  --colorBgLightest: #595959;
+  --colorBgDarkest: #000;
+
+  /* text colors */
+  --colorText: #cfcfcf;
+  --colorOrange: #ffaf2b;
+  --colorBlue: #5680c2;
+}
+
+html, body {
+  color: var(--colorText);
+  background-color: var(--colorBg);
+}
+
+body { /* exactely the same as the notion.so generated pages */
+  margin: 2em auto;
+  max-width: 900px;
+}
+
+nav {
+  color: var(--colorText);
+}
+
+hr {
+  background-color: var(--colorBgLightest);
+}
+
+/*******************/
+/* color overrides */
+/*******************/
+
+/* callout */
+.callout { background-color: var(--colorBgLight); }
+
+/* BG colors */
+mark {
+  padding: 3px;
+  border-radius: 5px;
+  font-weight: 700;
+}
+.highlight-orange_background { background-color: var(--colorOrange); }
+.highlight-blue_background   { background-color: var(--colorBlue); }
+.highlight-gray_background   { background-color: var(--colorBgDarkest); color: var(--colorText);}
+
+/* colors */
+.highlight-orange { color: var(--colorOrange); }
+
+/*******/
+/* nav */
+/*******/
+
+nav {
+  background-color: var(--colorBgLight);
+}
+
+/**************/
+/* typography */
+/**************/
+
+a {
+  color: var(--colorText);
+  text-decoration: underline;
+  text-decoration-color: var(--colorOrange);
+}
+a:hover {
+  color: var(--colorOrange);
+  text-decoration-color: var(--colorText);
+}
+
+h1.title {
+  color: white;
+  font-size: 65px;
+  /* generated with http://snapbuilder.com/code_snippet_generator/3d_css_text_generator/ */
+  text-shadow:0px 0px 0 rgb(194,194,194),1px 1px 0 rgb(180,180,180),2px 2px 0 rgb(167,167,167),3px 3px 0 rgb(154,154,154),4px 4px 0 rgb(140,140,140),5px 5px 0 rgb(127,127,127), 6px 6px 0 rgb(114,114,114),7px 7px 6px rgba(0,0,0,1),7px 7px 1px rgba(0,0,0,0.5),0px 0px 6px rgba(0,0,0,.2);
+}
+
+h1 {
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--colorOrange);
+}
+
+/*******************/
+/* index.html page */
+/*******************/
+
+h2.indexPage {
+  font-size: 40px;
+}
+
+.indexpageLinks {
+  font-size: 30px;
+  margin-left: 30px;
+}
+
+.tags {
+  font-size: 15px;
+  margin-left: 40px;
+}
+
+.tag {
+  font-weight: 400;
+  margin-right: 5px;
+  padding: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+  color: var(--colorOrange);
+  background-color: var(--colorBgLight);
+  text-transform: capitalize;
+}

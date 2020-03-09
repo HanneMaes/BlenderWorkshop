@@ -1,0 +1,66 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!--Let browser know website is optimized for mobile-->
+
+  <title>Blender</title>
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- custom browser head color -->
+  <meta name="theme-color" content="#ffaf2b">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700" rel="stylesheet"> -->
+
+  <!-- my css -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- css libraries -->
+  <!-- <link rel="stylesheet" href="lib/aos.css"> -->
+
+  <!-- to generate favicons & manifest: https://www.pwabuilder.com/ || https://realfavicongenerator.net/ -->
+  <!-- to generate native apps: https://www.pwabuilder.com/ -->
+
+  <meta name="author" content="Hanne Maes">
+  <!-- meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content=""-->
+
+</head>
+<body>
+
+  <h1 class="title">Blender Workshops</h1>
+  
+  <!-- workshops -->
+  <h2 class="indexPage">Workshops</h2>
+  <p id="workshops" class="indexpageLinks"></p>
+
+  <!-- tools -->
+  <h2 class="indexPage">Tools</h2>
+  <p class="indexpageLinks">
+    ⌨️ <a href="shortcuts.html">Shortcuts</a><br>
+    <!-- 🖥️ <a href="ui.html">User Interface</a><br> -->
+  </p>
+
+  <!---------------->
+  <!-- javascript -->
+  <!---------------->
+
+  <!-- my scripts -->
+  <script type="text/javascript" src="getWorkshops.js"></script>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() { documentReady(); });
+  </script>
+
+</body>
+</html>
