@@ -1,438 +1,571 @@
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!--Let browser know website is optimized for mobile-->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Cartoon</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
 
-  <title>Blender Workshop: Blender primitieven</title>
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
 
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
 
-  <!-- custom browser head color -->
-  <meta name="theme-color" content="#ffaf2b">
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
 
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet"> 
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
 
-  <!-- my css -->
-  <link rel="stylesheet" href="../styles.css">
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
 
-  <!-- to generate favicons & manifest: https://www.pwabuilder.com/ || https://realfavicongenerator.net/ -->
-  <!-- to generate native apps: https://www.pwabuilder.com/ -->
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
 
-  <meta name="author" content="Hanne Maes">
-  <!-- meta name="description" content="">
-  <meta name="keywords" content="">
-  <meta property="og:site_name" content="">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="">
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
-  <meta property="og:image" content=""-->
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
 
-</head>
-<body>
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
 
-<!--------->
-<!-- nav -->
-<!--------->
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
 
-<nav data-aos="fade-right" data-aos-duration="1500">
-  <h1>Blender: Primitieven</h1>
-  <a href="#navigatie">Navigatie</a>
-  <small><a target="_blank" href="https://docs.blender.org/manual/en/latest/editors/3dview/navigate/navigation.html#id1">Meer info over de Blender navigatie.</a></small>
-  <a href="#primitieven">Primitieven</a>
-  <a href="#oefcartoon">Oefening 01: Cartoon</a>
-  <a href="#materialen">Materialen</a>
-  <a href="#uitbreiding">Uitbreiding opdrachten</a>
-  <a href="#oefcartoonColor">Oefening 02: Cartoon inkleuren</a>
-  <a href="#modifiers">Modifiers</a>
-  <small><a target="_blank" href="https://docs.blender.org/manual/en/latest/editors/3dview/navigate/navigation.html#id1">Meer info over Modifiers.</a></small>
-  <a href="#oefcartoonColor">Oefening 03: Modifiers</a>
-</nav>
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
 
-<!------------------->
-<!-- by Hanne Maes -->
-<!------------------->
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
 
-<div class="byHanneMaes">By <span class="HanneMaes">Hanne Maes</span></div>
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
 
-<!------------->
-<!-- article -->
-<!------------->
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
 
-<article>
+mark {
+	background-color: transparent;
+}
 
-<!-- Wat gaan we leren:
-<ul>
-  <li>Basis user interface</li>
-  <li>Basis navigatie</li>
-</ul> -->
+.indented {
+	padding-left: 1.5em;
+}
 
-<!-- <h2 data-aos="fade-left">De user interface</h2> -->
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
 
-<!--------------->
-<!-- navigatie -->
-<!--------------->
+img {
+	max-width: 100%;
+}
 
-<h2 data-aos="fade-left">Navigatie</h2>
-<section data-aos="zoom-in" id="navigatie">
-  
-  <p>
-    Bij het opstarten krijg je een splash screen te zien.<br>
-    Klik om dit weg te doen.
-  </p>
-  <p>
-    Zo werkt de Blender viewport navigatie:
-  </p>
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
 
-  <div class="row">
-    <div class="half lightBg">
-      <h4>Shortcuts</h4>
-      <ul>
-        <li>Roteren: midden muisknop (alt-links)</li>
-        <li>Zoomen: scroll (alt-ctrl + onder/beneden)</li>
-        <li>Pannen (bewegen): shift-midden muisknop</li>
-      </ul>
-    </div>
-    <div class="half lightBg">
-      <h4>Navigation Gizmo</h4>
-      <img src="Cartoon/missie01/navigation-gizmo.png">
-    </div> 
-  </div>
-  
-  <!-- extra info -->
-  <h3>Extra info<h3>
-  <p>
-    <a target="_blank" href="https://docs.blender.org/manual/en/latest/editors/3dview/navigate/navigation.html#id1">Meer info over de Blender navigatie.</a>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/ILqOWe3zAbk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>  
-  </p>
+@page {
+	margin: 1in;
+}
 
-</section>
+.collection-content {
+	font-size: 0.875rem;
+}
 
-<!----------------->
-<!-- primitieven -->
-<!----------------->
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
 
-<h2 data-aos="fade-left">Primitieven</h2>
-<section data-aos="zoom-in" id="objecten">
-  
-  <!-- verwijderen -->
-  <h3>Verwijderen</h3>
-  <p>
-    Blender opent altijd met een cube.<br>
-    Deze verwijder je door <strong>X</strong> in te drukken, of <strong>Object > Delete</strong> in het menu te selecteren.
-  </p>
+.column {
+	padding: 0 1em;
+}
 
-  <!-- extra info -->
-  <h3>Extra info</h3>
-  <p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/JSAobQPRLwc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </p>
+.column:first-child {
+	padding-left: 0;
+}
 
-  <!-- plaatsen -->
-  <h3>Plaatsen</h3>
-  <p>
-    Nieuwe objeten plaats je via de shortcut <strong>Shift+a</strong>, of via het <strong>Add</strong> menu.<br>
-    Voor deze opdracht hebben we enkel objecten van het type <strong>Mesh</strong> nodig.
-  </p>
-  <p>
-    <em>Nieuwe objecten</em> lijken in het midden te komen, maar eigenlijk komen ze <em>op de plek van de 3D cursor</em> te staan.<br>
-    <img src="Cartoon/missie01/3DCursor.jpg">
-  </p>
+.column:last-child {
+	padding-right: 0;
+}
 
-  <!-- extra info -->
-  <h3>Extra info</h3>
-  <p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/VqzKWxw3IXc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </p>
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
 
-  <!-- aanpassen -->
-  <h3>Positie, schaal en rotatie</h3>
-  <p>
-    Verplaatsen, herschalen en roteren die je via deze Shortcuts:
-  </p>
-  <ul>
-    <li>G: verplaatsen (grab)</li>
-    <li>S: herschalen (scale)</li>
-    <li>R: Roteren (rotate)</li>
-  </ul>
-  <p>
-    Om deze shortcuts beter te onthouden kan je denken aan de engelse namen <em>grab (verplaatsen)</em>, <em>Scale (herschalen)</em> en <em>rotate (roteren)</em>.
-  </p>
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
 
-  <!-- Bewerkingen uitvoeren over 1 as -->
-  <h3>Bewerkingen uitvoeren over 1 as</h3>
-  <p>
-    Wil je deze bewerking uitvoeren over 1 as, dan druk je de toets in van deze as.
-  </p>
-  <ul>
-    <li>X: X-as</li>
-    <li>Y: Y-as</li>
-    <li>Z: Z-as</li>
-  </ul>
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
 
-  <!-- extra info -->
-  <h3>Extra info<h3>
-  <p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/hTL6AKR8YDs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>	
-  <p>
-  
-</section>
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
 
-<!------------------->
-<!-- oef 1 cartoon -->
-<!------------------->
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
 
-<h2 data-aos="fade-left">Oefening 01: Cartoon</h2>
-<section data-aos="zoom-in" id="oefCartoon">
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
 
-  <h3>Opdracht</h3>
-  <p>Kies een cartoon of stripfiguur en maak het zo nauwkeurig mogelijk na in Blender.</p>
+table {
+	border-left: none;
+	border-right: none;
+}
 
-  <h3>Tips</h3>
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
 
-</section>
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
 
-<!---------------->
-<!-- materialen -->
-<!---------------->
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
 
-<h2 data-aos="fade-left">Materialen</h2>
-<section data-aos="zoom-in" id="materialen">
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
 
-  <!-- nieuwe materialen aanmaken -->
-  <h3>Nieuwe materialen aanmaken</h3>
-  <p>
-    Om onze primitieven kleur te geven werken we met zogenaamde <em>Materials</em>.<br>
-    Via deze materials zullen we onze primitieven de eigenschappen kunnen geven van echte materialen.
-    <ol>
-      <!-- 1 -->
-      <li>
-        We veranderen onze <em>Viewport Shading</em> van Solid naar <em>Material Preview</em>.<br>
-        <small>
-          Dit zorgt ervoor wat onze materialen zichtbaar worden.<br>
-          Dit staat standaard uit, omdat bit Blender trager maakt, je ze dit best enkel aan wanneer je je materialen aan het maken bent.
-        </small><br>
-        <img src="Cartoon/missie01/ui-material-preview.png">
-      </li>
-      <!-- 2 -->
-      <li>
-        Om onze materialen te kunnen bewerken openen we de <em>Material Properties</em>.<br>
-        <img src="Cartoon/missie01/ui-material-properties.png">
-      </li>
-      <!-- 3 -->
-      <li>
-        Om een nieuw materiaal aan te maken klikken we op <em>New</em>.<br>
-        Dan kunnen we een <em>Base Color</em> kiezen.<br>
-        <small>De andere materiaal eigenschappen komen later nog aan bod.</small><br>
-        <img src="Cartoon/missie01/ui-new-material.png">
-      </li>
-    </ol>
-  <p>
+ul > li {
+	list-style: disc;
+}
 
-  <!-- materialen herbruiken -->
-  <h3>Materialen herbruiken</h3>
-  <div class="row">
-    <div class="half">
-      <p>
-        Door op het <em>Browse Material</em> naast New te klikken kunnen we een materiaal selecteren dat je reeds gemaakt hebben.<br>
-        <small>Wanneer we een materiaal aanpassen, zulle alle objecten die dat meteriaal dragen mee aangepast worden.</small>
-      </p>
-    </div>
-    <div class="half">
-      <img src="Cartoon/missie01/ui-material-select.png">
-    </div>
-  </div>
+ul.to-do-list {
+	text-indent: -1.7em;
+}
 
-  <!-- extra info -->
-  <h3>Extra info<h3>
-  <p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/RRilLLyyn1Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </p>
-  <p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/RRilLLyyn1Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </p>
-  
-</section>
+ul.to-do-list > li {
+	list-style: none;
+}
 
-<!----------------------------->
-<!-- oef 2 cartoon inkleuren -->
-<!----------------------------->
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
 
-<h2 data-aos="fade-left">Oefening 02: Cartoon inkleuren</h2>
-<section data-aos="zoom-in" id="oefcartoonColor">
+ul.toggle > li {
+	list-style: none;
+}
 
-  <h3>Opdracht</h3>
-  <p>Gebruik de bovenstaande methodes om je cartoon of stripfiguur in te kleuren.</p>
+ul {
+	padding-inline-start: 1.7em;
+}
 
-  <h3>Tips</h3>
-  <ol>
-    <li>Probeer zoveel mogelijk materialen te herbruiken.</li>
-  </ol>
+ul > li {
+	padding-left: 0.1em;
+}
 
-</section>
+ol {
+	padding-inline-start: 1.6em;
+}
 
-<!--------------->
-<!-- modifiers -->
-<!--------------->
+ol > li {
+	padding-left: 0.2em;
+}
 
-<h2 data-aos="fade-left">Modifiers</h2>
-<section data-aos="zoom-in" id="oefcartoonColor">
+.mono ol {
+	padding-inline-start: 2em;
+}
 
-  <h3>Modifiers</h3>
-  <p>
-    Modifiers passen de <em>vorm van objecten</em> aan, op een niet destructieve manier.<br>
-    <small>Niet destructief wil zeggen dat je nadien de modifiers nog kan aanpassen of verwijderen zonder het originele object aan te passen.</small>
-  </p>
+.mono ol > li {
+	text-indent: -0.4em;
+}
 
-  <h3>Modifiers toevoegen</h3>
-  <ol>
-    <!-- 1 -->
-    <li>
-      Ga naar de <em>Modifier Properties</em>.<br>
-      <img src="Cartoon/missie01/ui-modifier-properties.png">
-    </li>
-    <!-- 2 -->
-    <li>
-      Klik op <em>Add Modifier</em> en kies een modifier.<br>
-      <img src="Cartoon/missie01/ui-add-modifier.png">
-    </li>
-    <!-- 3 -->
-    <li>
-      Nu kan je de eigenschappen van de modifier aanpassen.<br>
-      <img src="Cartoon/missie01/ui-modifier-settings.png">
-    </li>
-  </ol>
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
 
-  <h3>Meestgebruikte modifiers</h3>
-  <div class="row modifiersTable">
-    <div>
-      <h4>Simple Deform</h4>
-      <img src="Cartoon/missie01/modifier-simple-deform.gif"><br>
-      Simpele vervromingen zoals Twist, Bend, Taper en Stretch.
-    </div>
-    <div>
-      <h4>Cast</h4>
-      <img src="Cartoon/missie01/modifier-cast.gif"><br>
-      Vervorm je object naar een kubus, cylinder of bol.
-    </div>
-    <div>
-      <h4>Wave</h4>
-      <img src="Cartoon/missie01/modifier-wave.gif"><br>
-      Toon golven op je object.
-    </div>
-    <div>
-      <h4>Wireframe</h4>
-      <img src="Cartoon/missie01/modifier-wireframe.gif"><br>
-      Toon de opbouw van je object.
-    </div>
-    <div>
-      <h4>Boolean</h4>
-      <img src="Cartoon/missie01/modifier-boolean.gif"><br>
-      Selecteer een 2<sup>e</sup> object en snij dit uit of voeg dit toe aan je object.<br>
-      <em>Selecteer een 2<sup>e</sup> object en druk op Apply om deze modifier toe te passen.</em>
-    </div>
-    <div>
-      <h4>Mirror</h4>
-      <img src="Cartoon/missie01/modifier-mirror.gif"><br>
-      Spiegel je vorm.<br>
-      <em>Druk op de <strong>Tab</strong> toets en verplaats je object om de weerspiegeling te zien.</em>
-    </div>
-  </div>
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
 
-  <p>
-    <a target="_blank" href="https://docs.blender.org/manual/en/latest/editors/3dview/navigate/navigation.html#id1">Meer info over Modifiers.</a>
-  </p>
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
 
-  <h3>Subdivision Modifier</h3>
-  <p>
-    Met de Subdivision Modifier kan je de interne structuur van een object verfijnen.<br>
-    Dit kan je het best zien in de <em>Wireframe</em> <em>Viewport Shading</em>.<br>
-    <img src="Cartoon/missie01/ui-viewport-shading-wireframe.png"><br>
-  </p>
-  <p>
-    Soms zullen Modifiers niet duidelijk zichtbaar zijn, dit kan komen omdat de interne structuur van het object niet fijn genoeg is.<br>
-    Dit kan je oplossen met de <em>Subdivision Modifier</em>.<br>
-  </p>
-  <p>
-    Selecteer <em>Simple</em> en verhoog het <em>Viewport</em> nummer.<br>
-    <img src="Cartoon/missie01/subdivision.png"><img src="Cartoon/missie01/subdivision-settings.png">
-  </p>
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
 
-  <h3>Modifier stack</h3>
-  <p>
-    Je kan verschillende Modifiers toevoegen op hetzelfde object.<br>
-    Dit heet de <em>Modifier Stack</em>.
-  </p>
-  <p>De <em>volgorde is zeer belangrijk</em> waarop je deze Modifiers toevoegt bepaald de uiteindelijke vorm van je Object.</p>
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
 
-  <!-- voorbeeld 1 -->
-  <h4>Voorbeeld 1</h4>
-  <div class="row modifiersStackTable">
-    <div>
-      <img src="Cartoon/missie01/modifier-stack-1-1.png">
-    </div>
-    <div>
-      <img src="Cartoon/missie01/modifier-stack-1-2.png"><br>
-      Boolean Modifier
-    </div>
-    <div>
-      <img src="Cartoon/missie01/modifier-stack-1-3.png"><br>
-      Simple Deform
-    </div>
-  </div>
+time {
+	opacity: 0.5;
+}
 
-  <!-- voorbeeld 2 -->
-  <h4>Voorbeeld 2</h4>
-  <div class="row modifiersStackTable">
-    <div>
-      <img src="Cartoon/missie01/modifier-stack-2-1.png"><br>
-      Simple Deform
-    </div>
-    <div>
-      <img src="Cartoon/missie01/modifier-stack-2-2.png"><br>
-      Boolean Modifier
-    </div>
-    <div>
-      <img src="Cartoon/missie01/modifier-stack-2-3.png">
-    </div>
-  </div>
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
 
-</section>
+img.icon {
+	border-radius: 3px;
+}
 
-<!-------------------->
-<!-- oef 3 modifier -->
-<!-------------------->
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
 
-<h2 data-aos="fade-left">Oefening 03: Modifiers</h2>
-<section data-aos="zoom-in" id="oefcartoonColor">
+.user-icon-inner {
+	font-size: 0.8em;
+}
 
-  <h3>Tips</h3>
-  <ol>
-    <li>
-      Je hoeft niet overal modifiers op te zetten.<br>
-      Gebruik ze enkel als je de vorm niet kan verkrijgen met <strong>Scale (S)</strong> en <strong>Rotate (R)</strong>.
-    </li>
-  </ol>
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
 
-</section>
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
 
-<!---------------->
-<!-- javascript -->
-<!---------------->
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
 
-<!-- libraries -->
-<script src="lib/glider.min.js"></script>
-<script src="lib/aos.js"></script>
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
 
-<!-- my scripts -->
-<script src="script.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function() { documentReady(); }); /* vanilla js */
-</script>
+.page-header-icon img {
+	border-radius: 3px;
+}
 
-</body>
-</html>
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	opacity: 0.5;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif; }
+.mono { font-family: Nitti, 'Microsoft YaHei', '微软雅黑', monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, KaiTi, STKaiTi, '华文楷体', KaiTi_GB2312, '楷体_GB2312', serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, Nitti, 'Microsoft YaHei', '微软雅黑', monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style>
+<meta name="theme-color" content="#ffaf2b">
+<link rel="stylesheet" href="../styles.css">
+</head><body><article id="9461a9ad-2213-4709-8771-a3ed98f358bc" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1514329926535-7f6dbfbfb114?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 67.65%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">😶</span></div><h1 class="page-title">Cartoon</h1></header><div class="page-body"><nav id="92ad53de-e48d-4690-8acd-1e21039ae054" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#35401fa5-295a-49ac-8032-665cbb76e553">🏅 Wat gaan we maken?</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4a466169-d21b-44ea-aec0-4ddfa83e3ff2">💡 Icoontjes</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8ad8c883-2523-4f8c-9a15-e87613c2030c">👁️ Blender downloaden</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#ef11754c-b132-4a5c-b2d7-5e0341f1d3ad">👁️ Navigatie</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23c33982-dd30-4291-bcd9-adb6170036f9">👁️ Primitieven</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#50621c7a-2e96-44b9-970e-353933ce02cc">Primitieven verwijderen</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#e430eec0-5659-4393-939d-32771be049e1">Primitieven plaatsen</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#43d3f44c-03ea-40c6-a945-bc8349eb6791">Positie, schaal en rotatie</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#c8733826-8e97-4144-a1f4-9607fc9eeabf">Positie, schaal en rotatie over 1 as</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#316ce62d-d6c7-4f2e-b259-f00b8bee7958">👁️ Smooth &amp; flat shading</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#251e06b4-962b-4ef7-9e6b-0fa482039818">✏️ Teken je eigen cartoon</a></div></nav><h1 id="35401fa5-295a-49ac-8032-665cbb76e553" class="">🏅 Wat gaan we maken?</h1><figure id="f893361c-0f26-428b-8242-00ddb23671d2" class="image"><a href="Cartoon/render.png"><img style="width:1920px" src="Cartoon/render.png"/></a></figure><h1 id="4a466169-d21b-44ea-aec0-4ddfa83e3ff2" class="">💡 Icoontjes</h1><p id="bee89688-0425-439e-a772-13d349c24b82" class="">👁️ Whenever you see the <strong>eye</strong> icon, you will <strong>learn</strong> something.
+✏️ Whenever you see the <strong>pencil</strong> icon, you get to <strong>create</strong> something with your newfound knowledge. Time to let your creativity flow!</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="80dcb55f-3512-4860-ad61-5756d7039f22"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Tips</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b8ece957-a85e-4f75-b871-fb6272acf085"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">📢 Vertalingen</div></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="123202c6-8d62-4e54-b667-80a3386b52b8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">📚<mark class="highlight-gray"> Links naar extra informatie</mark></div></figure><h1 id="8ad8c883-2523-4f8c-9a15-e87613c2030c" class="">👁️ Blender downloaden</h1><p id="7ea74ef3-2417-4870-bc23-8d3b779823b2" class="">Blender en volledig gratis en open-source, het werkt op zowel Windows, MacOs &amp; Linux.</p><p id="eab6550b-f566-4960-9936-b8f290f1c4a8" class="">Blender kan je hier downloaden: <a href="https://www.blender.org/">https://www.blender.org/</a></p><h1 id="ef11754c-b132-4a5c-b2d7-5e0341f1d3ad" class="">👁️ Navigatie</h1><p id="831af6f8-71a8-492f-b3f4-5e6a0b86a67e" class="">Bij het opstarten krijg je een splash screen te zien. Klik ergens op het scherm om dit weg te doen.</p><figure id="55d88c71-3bd6-4be2-9b31-4fc7bea7cbc8" class="image"><a href="Cartoon/Untitled.png"><img style="width:1154px" src="Cartoon/Untitled.png"/></a></figure><p id="0f31a83e-2783-4194-95a5-65834a3ce142" class="">Binnen Blender kan je navigeren op 2 manieren:</p><ol id="b53b1684-c134-4fd1-8934-9a7e65ff8f4d" class="numbered-list" start="1"><li>Via het <mark class="highlight-gray_background">Navigation Gizmo</mark>:<figure id="269b5bbd-d737-4378-8821-207b263e3f20" class="image"><a href="Cartoon/navigation_gizmo.gif"><img style="width:728px" src="Cartoon/navigation_gizmo.gif"/></a></figure></li></ol><p id="3a3a5502-1b25-4ba7-aca3-72dcfa8ab0f1" class="">2. Via de muis en het toetsenbord</p><ul id="3369bd09-564f-47ee-8859-9a6f903e45aa" class="bulleted-list"><li>Roteren: <mark class="highlight-orange_background">midden muisknop</mark></li></ul><ul id="29a85169-dbbf-40e0-b9d6-d207bc155b7b" class="bulleted-list"><li>Zoomen: <mark class="highlight-orange_background">scroll</mark></li></ul><ul id="a63c20b7-53d8-44ed-88b8-658666e10b03" class="bulleted-list"><li>Pannen (bewegen): <mark class="highlight-orange_background">shift-midden muisknop</mark></li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c0807f76-a6c9-4fdd-91c1-c762b674d19c"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">📚<mark class="highlight-gray"> Extra info over navigatie:</mark></div></figure><figure id="86db2b73-7df4-4f48-9719-ad7c8baf5be1"><div class="source"><a href="https://www.youtube.com/watch?v=ILqOWe3zAbk&amp;feature=emb_logo">https://www.youtube.com/watch?v=ILqOWe3zAbk&amp;feature=emb_logo</a></div></figure><h1 id="23c33982-dd30-4291-bcd9-adb6170036f9" class="">👁️ Primitieven</h1><h2 id="50621c7a-2e96-44b9-970e-353933ce02cc" class="">Primitieven verwijderen</h2><p id="c3022bd8-a8dc-4bf5-be78-9f1f986305bd" class="">Blender opent altijd met een <mark class="highlight-gray_background">Cube</mark>. Deze verwijder je door <mark class="highlight-orange_background">X</mark> in te drukken, of door <mark class="highlight-blue_background">Object &gt; Delete</mark><strong> </strong>in het menu te selecteren.</p><h2 id="e430eec0-5659-4393-939d-32771be049e1" class="">Primitieven plaatsen</h2><p id="888c5b55-f402-4931-ac26-d024505d64d4" class="">Nieuwe objecten plaats je via de shortcut <mark class="highlight-orange_background">Shift-A</mark>, of via het <mark class="highlight-blue_background">Add</mark> menu. Voor deze opdracht hebben we enkel objecten van het type <mark class="highlight-blue_background">Mesh</mark> nodig.</p><p id="0c9c9217-f915-4ec3-acda-1724a6f4ce99" class="">Plaats nu zelf een 2 objecten, een met de shortcut <mark class="highlight-orange_background">Shift-A</mark> en een andere via <mark class="highlight-blue_background">Add &gt; Mesh</mark>.</p><figure id="671c9c6d-5213-4f73-894f-ec474a5faa4c" class="image"><a href="Cartoon/remove_add_primitives.gif"><img style="width:892px" src="Cartoon/remove_add_primitives.gif"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="5b32ed08-d946-4e48-9b89-7f8db62f8b65"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">📚<mark class="highlight-gray"> Extra info over het verwijderen en plaatsen van objecten:</mark></div></figure><figure id="fb29ee55-dc91-4e74-87e9-5ebd79c84066"><div class="source"><a href="https://www.youtube.com/watch?v=JSAobQPRLwc&amp;feature=emb_logo">https://www.youtube.com/watch?v=JSAobQPRLwc&amp;feature=emb_logo</a></div></figure><figure id="515c7eaf-239f-4a16-bb29-a4942f084388"><div class="source"><a href="https://www.youtube.com/watch?time_continue=27&amp;v=VqzKWxw3IXc&amp;feature=emb_logo">https://www.youtube.com/watch?time_continue=27&amp;v=VqzKWxw3IXc&amp;feature=emb_logo</a></div></figure><h2 id="43d3f44c-03ea-40c6-a945-bc8349eb6791" class="">Positie, schaal en rotatie</h2><p id="8ee3a7ea-2bca-480a-b2f7-99e4c1b96cac" class="">Verplaatsen, herschalen en roteren die je via deze shortcuts:</p><ul id="79260974-cc32-4308-a90f-5ef07ea3a720" class="bulleted-list"><li>Verplaatsen: <mark class="highlight-orange_background">G</mark> (<mark class="highlight-orange"><strong>G</strong></mark>rab of grijpen)</li></ul><ul id="fd0e1b3a-3117-4e96-aa92-dbc183dae7a3" class="bulleted-list"><li>Herschalen: <mark class="highlight-orange_background">S</mark> (<mark class="highlight-orange"><strong>S</strong></mark>cale)</li></ul><ul id="f2720390-70af-475a-a5fd-fd3f167d0d29" class="bulleted-list"><li>Roteren: <mark class="highlight-orange_background">R</mark> (<strong><mark class="highlight-orange">R</mark></strong>otate)</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="50806daf-2d50-4602-9c56-47ee42eea814"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Om deze shortcuts beter te onthouden kan je denken aan de Engelse namen <mark class="highlight-orange"><strong>g</strong></mark>rab (verplaatsen), <mark class="highlight-orange"><strong>s</strong></mark>cale (herschalen) en <mark class="highlight-orange"><strong>r</strong></mark>otate (roteren).</div></figure><h2 id="c8733826-8e97-4144-a1f4-9607fc9eeabf" class="">Positie, schaal en rotatie over 1 as</h2><p id="c2f06dc6-52d9-4ec8-9430-44c3b50dd32d" class="">Wil je deze bewerking uitvoeren over 1 as, dan druk je de toets in van de as.</p><ul id="0bc32d52-e1e2-491f-9b77-2dc9f169cc21" class="bulleted-list"><li>X-as: <mark class="highlight-orange_background">X</mark></li></ul><ul id="fbf4fba9-9690-4bf1-9e98-c947b30068d7" class="bulleted-list"><li>Y-as: <mark class="highlight-orange_background">Y</mark></li></ul><ul id="0135516f-ec92-482f-82ec-5ce8ef58964f" class="bulleted-list"><li>Z-as: <mark class="highlight-orange_background">Z</mark></li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="1a908030-da1f-498c-a438-51bee83d856d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">📚<mark class="highlight-gray"> Extra info:</mark></div></figure><figure id="bc79ab79-2b76-477f-b378-a88ffbfea4ee"><div class="source"><a href="https://www.youtube.com/watch?v=hTL6AKR8YDs&amp;feature=emb_logo">https://www.youtube.com/watch?v=hTL6AKR8YDs&amp;feature=emb_logo</a></div></figure><h1 id="316ce62d-d6c7-4f2e-b259-f00b8bee7958" class="">👁️ Smooth &amp; flat shading</h1><p id="cd93ade5-54db-4a7e-99f4-2a33ed3e6a19" class="">Wanneer je een object plaats ziet dit er heel scherp uit, maar je kan het er ook rond uit laten zien. Dit noemt men <mark class="highlight-gray_background">Shading</mark>. Er zijn 2 soorten <mark class="highlight-gray_background">Shading</mark>, <mark class="highlight-gray_background">Flat &amp; Smooth</mark>.</p><p id="b8bc0412-a85d-49c2-8efe-b2f97c8269bb" class="">Je kan de <mark class="highlight-gray_background">Shading</mark> van een object aan passen door in het menu <mark class="highlight-blue_background">Object &gt; Shade Smooth</mark> of <mark class="highlight-blue_background">Object &gt; Shade Flat</mark> te selecteren.</p><figure id="f87896b3-a7fe-4fe8-af38-dbb5f2ad9806" class="image"><a href="Cartoon/Untitled%201.png"><img style="width:536px" src="Cartoon/Untitled%201.png"/></a><figcaption>Flat Shading vs Smooth Shading</figcaption></figure><h1 id="251e06b4-962b-4ef7-9e6b-0fa482039818" class="">✏️ Teken je eigen cartoon</h1><p id="95309ac4-a456-4454-ab7b-ad8b09f2fccd" class="">Kies een cartoon of stripfiguur en maak het zo nauwkeurig mogelijk na in Blender.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="27876c7e-641c-424a-a5bf-02422079d635"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Probeer zo veel mogelijk te bewegen over de X, Y en Z as anders gaan je objecten op plaatsen terecht komen die je niet wil.</div></figure><div id="f4900143-fd45-4f61-a69a-6eed3b0f9b2b" class="column-list"><div id="216aea08-6a97-4e95-8be1-dc2374f583d8" style="width:31.25%" class="column"><figure id="c8514bd5-b687-49e5-aeb9-daf9acbca7d0" class="image"><a href="Cartoon/200px-Nijntje.jpg"><img style="width:200px" src="Cartoon/200px-Nijntje.jpg"/></a></figure></div><div id="46a8b253-4dce-44da-9ea4-333f5dd4f6fe" style="width:68.75%" class="column"><figure id="2cded60f-5305-4994-a55e-63d6c1709825" class="image"><a href="Cartoon/Untitled%202.png"><img style="width:1068px" src="Cartoon/Untitled%202.png"/></a></figure><p id="c1176586-d1b2-40c9-a48a-164dac8ffe6e" class="">
+</p></div></div><p id="6abdd1fe-5915-4919-a638-b59bfa5d40f0" class="">
+</p></div></article></body></html>
